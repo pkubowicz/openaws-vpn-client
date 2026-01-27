@@ -28,6 +28,7 @@ fi
 ROOT_DIR="$(pwd)"
 mkdir -p "$ROOT_DIR/../share/openvpn"
 
+rm -rf tmp
 mkdir tmp
 cd tmp
 
