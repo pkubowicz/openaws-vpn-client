@@ -12,7 +12,7 @@
 
 set -e
 
-OPENVPN_VERSION="2.5.11"
+OPENVPN_VERSION="2.6.19"
 CURRENT_DIRNAME=${PWD##*/}
 
 if [ "$CURRENT_DIRNAME" != "scripts" ]; then
@@ -37,7 +37,7 @@ echo "Downloading OpenVPN..."
 curl -fL https://raw.githubusercontent.com/OpenVPN/openvpn/master/COPYING --output "$ROOT_DIR/../share/openvpn/COPYING"
 curl -fL https://raw.githubusercontent.com/OpenVPN/openvpn/master/COPYRIGHT.GPL --output "$ROOT_DIR/../share/openvpn/COPYRIGHT.GPL"
 curl -fL https://swupdate.openvpn.org/community/releases/openvpn-$OPENVPN_VERSION.tar.gz --output openvpn-$OPENVPN_VERSION.tar.gz
-echo "5ef80681e71aa84629d48b067b540c0e8169ee3ff4b1129fc0030a55f0f7e2bb9a9cd568aa627828d8adb1366f5b0cfdd37242fb5cb6cec4a50fea9ffe8805bc  openvpn-$OPENVPN_VERSION.tar.gz" | sha512sum -c -
+echo "18e466dcc8edb5417a452599a85f6767eb48c2e61a05d46ed1d1565fcf75296d0b33962ba332becb1da248718e96cf5a965054c7c7493f919606bf653f56b50b  openvpn-$OPENVPN_VERSION.tar.gz" | sha512sum -c -
 echo "Decompressing OpenVPN..."
 tar -xf openvpn-$OPENVPN_VERSION.tar.gz
 rm -rf openvpn-$OPENVPN_VERSION.tar.gz
@@ -46,10 +46,10 @@ cd openvpn-$OPENVPN_VERSION || exit 1
 # Apply OpenVPN patch by 'samm-git'
 echo "Downloading OpenVPN Patch by 'samm-git'..."
 curl -fL https://raw.githubusercontent.com/samm-git/aws-vpn-client/master/LICENSE --output "$ROOT_DIR/../share/openvpn/PATCH-LICENSE"
-curl -fL https://raw.githubusercontent.com/samm-git/aws-vpn-client/master/openvpn-v2.5.1-aws.patch --output openvpn-v2.5.1-aws.patch
-echo "61f9e670d5081b7628955c8eee90d6b04deb02b0e8f3494bc236f502b919a6bbb79ddd9775274fb795e99f90e8c134c7daece9b1be60ba52b4fa968c27369e8d  openvpn-v2.5.1-aws.patch" | sha512sum -c -
+curl -fL https://raw.githubusercontent.com/samm-git/aws-vpn-client/master/openvpn-v2.6.12-aws.patch --output openvpn-v2.6.12-aws.patch
+echo "d3d6831dd250af27c0e4fe1f9e820e157a0230d86b0c60ec21dae53266884bbf9dbc46ce2ba29c0f37efd640d2ccb614e81feaa1a66e238f2e259ff33472b2dc  openvpn-v2.6.12-aws.patch" | sha512sum -c -
 echo "Applying OpenVPN Patch by 'samm-git'..."
-patch -p1 <openvpn-v2.5.1-aws.patch
+patch -p1 <openvpn-v2.6.12-aws.patch
 
 # Configure and build OpenVPN
 echo "Building OpenVPN..."
