@@ -37,7 +37,7 @@ echo "Downloading OpenVPN..."
 curl -fL https://raw.githubusercontent.com/OpenVPN/openvpn/master/COPYING --output "$ROOT_DIR/../share/openvpn/COPYING"
 curl -fL https://raw.githubusercontent.com/OpenVPN/openvpn/master/COPYRIGHT.GPL --output "$ROOT_DIR/../share/openvpn/COPYRIGHT.GPL"
 curl -fL https://swupdate.openvpn.org/community/releases/openvpn-$OPENVPN_VERSION.tar.gz --output openvpn-$OPENVPN_VERSION.tar.gz
-echo "18e466dcc8edb5417a452599a85f6767eb48c2e61a05d46ed1d1565fcf75296d0b33962ba332becb1da248718e96cf5a965054c7c7493f919606bf653f56b50b  openvpn-$OPENVPN_VERSION.tar.gz" | sha512sum -c -
+echo "13702526f687c18b2540c1a3f2e189187baaa65211edcf7ff6772fa69f0536cf  openvpn-$OPENVPN_VERSION.tar.gz" | sha256sum -c -
 echo "Decompressing OpenVPN..."
 tar -xf openvpn-$OPENVPN_VERSION.tar.gz
 rm -rf openvpn-$OPENVPN_VERSION.tar.gz
